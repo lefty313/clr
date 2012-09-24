@@ -1,5 +1,5 @@
 require 'thor'
-require 'search'
+require 'clr/search'
 
 module Clr
   class Cli < Thor
@@ -16,7 +16,7 @@ module Clr
       /require .pry./,
     ]
 
-    desc "clean [PATH || Dir.pwd]", "Manager your debugging markers"
+    desc "clean [PATH || Dir.pwd]", "Manage your debugging markers"
     method_option :comment, :type => :boolean, :aliases => "-c", :desc => 'comment all markers'
     method_option :uncomment, :type => :boolean, :aliases => "-u", :desc => 'uncomment all markers'
     method_option :remove, :type => :boolean, :aliases => "-r", :desc => 'remove all markers'

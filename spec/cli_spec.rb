@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'cli'
+require 'clr/cli'
 
 describe Clr::Cli do
   context "-s" do
