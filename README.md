@@ -1,6 +1,6 @@
 # Clr
 
-This gem manages the markers for debugging e.g. binding.pry
+This gem helps you to manage common debugging markes such as 'binding.pry', 'debugger' etc.
 
 In this video you can see how it works http://www.youtube.com/watch?v=yd9kQEYALTc&hd=1
 
