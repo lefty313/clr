@@ -38,8 +38,10 @@ describe Clr::Cli do
     it 'should comment markers in file' do
       in_temp_dir do
         copy_fixture
-        command 'clean', 'app.rb','-c'
+        result = command 'clean', 'app.rb','-c'
+
         File.read('app.rb').should == pattern_file('commented/app.rb')
+        result.should =~ /commented.* 5 markers in file app.rb/
       end
     end
   end
@@ -49,22 +51,24 @@ describe Clr::Cli do
       in_temp_dir do
         copy_fixture
         command 'clean', 'app.rb','-c'
-        command 'clean', 'app.rb','-u'
+        result = command 'clean', 'app.rb','-u'
 
         File.read('app.rb').should == pattern_file('uncommented/app.rb')
+        result.should =~ /uncommented.* 5 markers in file app.rb/
       end
-    end    
+    end
   end
 
   context "-r" do
     it 'should remove markers from file' do
       in_temp_dir do
         copy_fixture
-        command 'clean', 'app.rb', '-r'
+        result = command 'clean', 'app.rb', '-r'
         
         File.read('app.rb').should == pattern_file('removed/app.rb')
+        result.should =~ /removed.* 5 markers from file app.rb/
       end
-    end
+    end 
   end
 
 end
