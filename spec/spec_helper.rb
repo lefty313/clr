@@ -16,3 +16,22 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+def capture(stream)
+  begin
+    stream = stream.to_s
+    eval "$#{stream} = StringIO.new"
+    yield
+    result = eval("$#{stream}").string
+  ensure
+    eval("$#{stream} = #{stream.upcase}")
+  end
+  result
+end
+
+def in_temp_dir(&block)
+  dir = Dir.mktmpdir
+  Dir.chdir(dir, &block)
+ensure
+  FileUtils.rm_rf(dir)
+end
