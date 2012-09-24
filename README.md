@@ -1,6 +1,8 @@
 # Clr
 
-This program manages the markers for debugging
+This gem manages the markers for debugging e.g. binding.pry
+
+In this video you can see how it works http://www.youtube.com/watch?v=yd9kQEYALTc&hd=1
 
 ## Installation
 
@@ -18,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 ```shell
-  clr [PATH]
+  clr clean [PATH || Dir.pwd]
 
   Options:
     -c, [--comment]    # comment all markers
